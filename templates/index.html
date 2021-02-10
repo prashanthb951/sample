@@ -1,0 +1,1184 @@
+{% load static %}
+<html lang="en">
+{% load static %}
+<head>
+    <title> Auto Invoice Automation </title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="jquery-1.11.2.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="hilitor.js"></script>
+
+<script src='jquery-3.2.1.min.js' type='text/javascript'></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+
+
+        <style>.{
+            box-sizing:border-box
+            }
+            .child
+            {
+            border:5px solid blue;
+            height:200px;
+
+
+            }
+            .parent{
+            display:flex;
+
+             .image-preview{
+            width:20px;
+            min-height:40px;
+            border:2px solid black;
+            margin-top:10px;
+            margin-right:90px;
+
+            /* Default text */
+            display:flex;
+            align-items:center;
+            font-weight:bold;
+            color:blue;
+            }
+            .image-preview__image{
+            display:none;
+            width:100px;
+            }
+            }
+
+
+
+
+
+
+.split {
+
+}
+
+
+.left {
+
+left: 0;
+
+
+float:left;
+
+width: 50%;
+
+height: 100%;
+
+}
+
+
+
+.right {
+
+right: 0;
+
+
+float: right;
+
+width: 49.79%;
+
+height: 100%;
+
+
+
+}
+
+
+.topnav-left {
+
+float: left;
+
+padding-left: 25px;
+
+padding-bottom: 5px;
+
+}
+
+
+#mainpage {
+
+background-color: #FFFFFF;
+
+height: 100%;
+
+width:100%;
+
+background-size: cover;
+
+background-position: center;
+
+margin:8px;
+
+}
+
+
+#topdiv{
+
+
+
+height:60px;
+
+
+}
+
+
+
+.darkbutton {
+
+background-color: #BDD7EE; /* Green */
+
+border: 2px solid #BDD7EE;
+
+color: black;
+
+padding: 10px;
+
+text-align: center;
+
+text-decoration: none;
+
+font-size: 16px;
+
+margin: 4px 2px;
+
+cursor: pointer;
+
+border-radius: 8px;
+
+width:30%;
+
+height:9%;
+
+margin:10%;
+
+margin-left:15%;
+
+
+
+}
+
+
+.lightbutton {
+
+background-color: #DEEBF7; /* Green */
+
+border: 2px solid #BDD7EE;
+
+color: black;
+
+padding: 10px;
+
+text-align: center;
+
+text-decoration: none;
+
+font-size: 16px;
+
+margin: 4px 2px;
+
+cursor: pointer;
+
+border-radius: 8px;
+
+width:30%;
+
+height:8%;
+
+margin:10%;
+
+margin-left:15%;
+
+
+}
+
+
+.invotable {
+
+
+font-family: Arial;
+
+
+border-collapse: collapse;
+
+
+width: 95%;
+
+height:100px;
+
+
+color: black;
+
+
+margin-left: 30px;
+
+
+margin-right: 20px;
+
+
+margin-top: 3%;
+
+
+font-size: 14px;
+
+
+float: left;
+
+
+margin-bottom: 10px;
+
+
+height: auto;
+
+
+}
+
+
+.invotable td,
+
+th {
+
+
+border: 1px solid #A9A9A9;
+
+
+text-align: center;
+
+
+padding: 8px;
+
+
+}
+
+
+.invotable tr:nth-child(even) {
+
+
+
+
+color: black;
+
+
+font-family: Arial;
+
+
+font-size: 14px;
+
+
+}
+
+
+.invotable tr:nth-child(odd) {
+
+
+
+
+color: black;
+
+
+font-family: Arial;
+
+
+font-size: 14px;
+
+
+}
+
+
+.invotable tr:nth-child(1) {
+
+
+background-color: #BDD7EE;
+
+
+font-family: Arial;
+
+
+font-size: 14px;
+
+
+color: black;
+
+}
+
+
+.involinetable {
+
+
+font-family: Arial;
+
+
+border-collapse: collapse;
+
+
+width: 90%;
+
+
+margin-left: 30px;
+
+
+margin-right: 20px;
+
+
+margin-top: 20px;
+
+
+margin-bottom: 20px;
+
+
+font-size: 14px;
+
+color: black;
+
+
+}
+
+
+.involinetable td,
+
+th {
+
+
+border: 1px solid #a3a3a3;
+
+
+text-align: center;
+
+
+padding: 8px;
+
+
+width: auto;
+
+
+height: auto;
+
+
+color: black;
+
+
+}
+
+
+.involinetable tr:nth-child(even) {
+
+
+background-color: ;
+
+
+font-family: Arial;
+
+
+font-size: 14px;
+
+
+width: auto;
+
+
+height: auto;
+
+
+color: black;
+
+
+}
+
+
+.involinetable tr:nth-child(odd) {
+
+
+background-color: ;
+
+
+font-family: Arial;
+
+
+font-size: 14px;
+
+
+width: auto;
+
+
+height: auto
+
+
+color: black;
+
+
+}
+
+
+.involinetable tr:nth-child(1) {
+
+
+background-color: #BDD7EE;
+
+
+font-family: Arial;
+
+
+font-size: 14px;
+
+
+color: black;
+
+
+color: white;
+
+
+width: auto;
+
+
+height: auto;
+
+
+}
+
+
+  .buttons {
+
+width: 200px;
+
+margin: 0 auto;
+
+display: inline;
+
+}
+
+
+.action_btn {
+
+width: 200px;
+
+margin: 0 auto;
+
+display: inline;
+
+}
+
+
+.import {
+
+
+
+
+font-family: Arial;
+
+
+outline: 0;
+
+
+background-color: #4C4CB9;
+
+
+color: white;
+
+
+margin: 8px 26px;
+
+
+border: none;
+
+
+cursor: pointer;
+
+
+width: 12%;
+
+
+height: 6%;
+
+
+font-size: 18px;
+
+
+margin-left: 22%;
+
+
+margin-top: 20px;
+
+
+border-radius: 10px;
+
+
+color: white;
+
+
+box-shadow: 2px 5px #4444a6;
+
+
+
+
+}
+
+
+
+
+.importbtnleft {
+
+
+background-color: #DEEBF7; /* Green */
+
+border: 2px solid #BDD7EE;
+
+color: black;
+
+padding: 10px;
+
+text-align: center;
+
+text-decoration: none;
+
+font-size: 14px;
+
+margin: 4px 2px;
+
+cursor: pointer;
+
+border-radius: 8px;
+
+width:15%;
+
+height:7%;
+
+
+
+float: left;
+
+
+margin-left: 43%;
+
+
+
+border-radius: 8px;
+
+display:block;
+
+
+}
+
+
+.importbtnright {
+
+background-color: #DEEBF7; /* Green */
+
+border: 2px solid #BDD7EE;
+
+color: black;
+
+padding: 10px;
+
+text-align: center;
+
+text-decoration: none;
+
+font-size: 14px;
+
+margin: 4px 2px;
+
+cursor: pointer;
+
+border-radius: 8px;
+
+width:15%;
+
+height:7%;
+
+
+float: right;
+
+margin-top:20px;
+
+margin-right: 32%;
+
+display:block;
+
+
+
+
+
+}
+
+
+.pg-normal {
+
+color: #000000;
+
+font-size: 14px;
+
+cursor: pointer;
+
+background: #DEEBF7;
+
+padding: 2px 4px 2px 4px;
+
+}
+
+
+.pg-selected {
+
+color: #000000;
+
+font-size: 14px;
+
+background: #BDD7EE;
+
+padding: 2px 4px 2px 4px;
+
+
+}
+
+
+#myInput{
+
+height:25px;
+
+width:20%;
+
+outline:none;
+
+border: 1px solid #A9A9A9;
+
+background-color: #f2f2f2;
+
+float:right;
+
+margin-right:8%;
+
+padding: 6px;
+
+font-size: 14px;
+
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0), 0 8px 22px 0 rgba(0, 0, 0, 0);
+
+
+}
+
+
+.modal {
+
+
+
+
+display: none;
+
+
+position: fixed;
+
+
+z-index: 1;
+
+
+padding-top: 50px;
+
+
+left: 0;
+
+
+top: 0;
+
+
+width: 100%;
+
+
+height: 100%;
+
+
+overflow: auto;
+
+
+background-color: rgb(0, 0, 0);
+
+
+background-color: rgba(0, 0, 0, 0.4);
+
+
+
+
+}
+
+
+
+
+.modal-content {
+
+
+
+
+background-color: #fefefe;
+
+
+margin: auto;
+
+
+border: 1px solid #888;
+
+
+width: 60%;
+
+
+padding: 20px;
+
+
+
+
+}
+
+
+
+
+.linemodal {
+
+
+
+
+display: none;
+
+
+position: fixed;
+
+
+z-index: 1;
+
+
+left: 0;
+
+
+top: 0;
+
+
+width: 100%;
+
+
+height: 100%;
+
+
+overflow: auto;
+
+
+background-color: rgb(0, 0, 0);
+
+
+background-color: rgba(0, 0, 0, 0.4);
+
+
+
+
+}
+
+
+
+
+.linemodal-content {
+
+
+background-color: #fefefe;
+
+
+margin: auto;
+
+
+border: 1px solid #888;
+
+
+width: 40%;
+
+
+margin-top: 10%;
+
+
+}
+
+
+.invoicelineclose {
+
+
+color: #aaaaaa;
+
+
+float: right;
+
+
+font-size: 28px;
+
+
+font-weight: bold;
+
+
+margin-right: 5px;
+
+
+}
+
+
+<!-- Progress bar style -->
+
+
+.container1 {
+
+
+width: 300px;
+
+
+margin: 100px auto;
+
+}
+
+.progressbar1 {
+
+counter-reset: step;
+
+}
+
+
+.progressbar1 li {
+
+
+list-style-type: none;
+
+
+width: 25%;
+
+
+float: left;
+
+
+font-size: 16px;
+
+
+position: relative;
+
+
+text-align: center;
+
+
+font-style: inherit;
+
+
+font-family:Arial;
+
+
+color: #7d7d7d;
+
+
+}
+
+
+
+.progressbar1 li:before {
+
+
+z-index: 2;
+
+width: 30px;
+
+height: 30px;
+
+content: counter(step);
+
+counter-increment: step;
+
+line-height: 30px;
+
+border: 2px solid #000000;
+
+display: block;
+
+text-align: center;
+
+margin: 0 auto 10px auto;
+
+border-radius: 50%;
+
+background-color: white;
+
+
+}
+
+
+
+.progressbar1 li:after {
+
+
+width: 100%;
+
+
+height: 4px;
+
+
+content: '';
+
+
+position: absolute;
+
+
+background-color: #7d7d7d;
+
+
+top: 15px;
+
+
+left: -50%;
+
+
+z-index: -1;
+
+
+}
+
+
+
+.progressbar1 li:first-child:after {
+
+
+content: none;
+
+
+}
+
+
+
+.progressbar1 li.active {
+
+
+color: rgb(13, 185, 13);
+
+
+}
+
+
+
+.progressbar1 li.active:before {
+
+
+border-color: #55b776;
+
+
+}
+
+
+
+.progressbar1 li.active+li:after {
+
+
+background-color: #55b776;
+
+
+}
+
+
+
+.progressbar1 li.warning {
+
+
+color: orange;
+
+
+}
+
+
+
+.progressbar1 li.warning:before {
+
+
+border-color: rgba(251, 182, 54, 0.739);
+
+
+}
+
+
+
+.progressbar1 li.warning+li:after {
+
+
+background-color: rgba(251, 182, 54, 0.739);
+
+
+}
+
+
+
+.progressbar1 li.danger {
+
+
+color: red;
+
+
+}
+
+
+
+.progressbar1 li.danger:before {
+
+
+border-color: #fa5151;
+
+
+}
+
+
+
+.progressbar1 li.danger+li:after {
+
+
+background-color: #fa5151;
+
+
+}
+
+
+.verticalLine {
+
+ border-left:  thin solid #000;
+
+ height:100%;
+
+
+}
+
+#logruninfo{
+
+border: 2px solid rgb(172, 213, 250);
+
+border-radius: 5px;
+
+background-color: #DEEBF7;
+
+padding: 10px;
+
+width: 90%;
+
+}
+         </style>
+
+
+</head>
+<body id="mainpage" onload="return invoicepagereload()">
+<div class="menu" id="topdiv">
+
+<div >
+{% load static %}
+    <img  src="{% static 'C:\Users\Athamas\Desktop\proj5\proj5\static\logo.PNG' %}" alt="Image" height="35" width="130" style="margin-left:40px;margin-top:15px;" />
+
+<p style="float: right;margin-right:35%;font-family: Arial; font-size:25px;">
+<b>Document Processing</b>
+
+</p>
+
+</div>
+
+</div>
+<hr style="margin-top:20px;"/>
+<form name="" method="" action="show">
+
+
+       <div class="split left">
+
+           <input id="uploadPDF" type="file" name="file" class="darkbutton" id='invoicelist' style="margin-top:5%;font-weight:bold;"/>&nbsp;
+       <div class="horizontalline">
+           <input   class="lightbutton" id= "successlist" style="margin-top:0%" type="button" value="Search"onclick="promptUser()"><br>
+
+           {% csrf_token %}
+            <input type="file"
+                   title="Upload excel file"
+                   name="excel_file"
+                   style="border: 1px solid black; padding: 5px;"
+                   required="required">
+            <p>
+            <input type="submit"
+                   value="Upload"
+                   style="border: 1px solid green; padding:5px; border-radius: 2px; cursor: pointer;">
+        </form>
+       <hr>
+        <table border="1">
+           {% for row in excel_data %}
+            <tr>
+            {% for cell in row %}
+                <td>
+                {{ cell }}&nbsp;&nbsp;
+            {% endfor %}
+                </td>
+
+            </tr>
+        {% endfor %}
+        </table>
+       </div>
+        </p>
+            <br />
+           <form name=f1 method=post enctype="multipart/form-data">
+
+               <br />
+        </div>
+    </div>
+<div class="split right" id="main split">
+
+<div class="verticalLine">
+
+<div id="preview" style="height: 300px;">
+    <br />
+       <div>
+            <p align="center"><input type="button"  style="margin-left:10%;" value="Preview" onclick="PreviewImage();"/></p>
+           <script type="text/javascript">
+                        function promptUser() {
+                        let userInput = prompt("Hi, enter the text?", "");
+                        if(userInput != null) {
+                        document.getElementById("result").innerHTML = " " + userInput + ". ";
+                        document.getElementById("data").value = " " + userInput + ". ";
+                        }
+                        }
+                </script>
+                <input type="text" id="data" name="data" hidden />
+                        <p id="result" ></p>
+       </form>
+
+                <div style="clear:both">
+                        <iframe id="viewer" frameborder="0" scrolling="yes" width="1100" height="300"></iframe>
+                </div>
+                         <button type="submit" name="submit" class="btn btn-success btn-sm">
+                            {% csrf_token %}
+                            <i class="fa fa-dot-circle-o"></i> Add
+                        </button>&emsp;
+
+                            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+                                <script>
+                                    function PreviewImage() {
+                                    pdffile=document.getElementById("uploadPDF").files[0];
+                                    pdffile_url=URL.createObjectURL(pdffile);
+                                    $('#viewer').attr('src',pdffile_url);
+                                    }
+                                </script>
+                                    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+                                            <script type="text/javascript">
+                                                    function PreviewImage() {
+                                                    pdffile=document.getElementById("uploadPDF").files[0];
+                                                    pdffile_url=URL.createObjectURL(pdffile);
+                                                    $('#viewer').attr('src',pdffile_url);
+                                                    }
+                                            </script>
+                                            <br />
+  <p align="center"><b><input style="width:70px;"type="button" onclick="fun()" value="result"/></b></p>
+
+<script>
+function fun() {
+  document.getElementById("demo").innerHTML = "{{a}}";
+}
+</script>
+
+         </form>
+    <td align="center"><textarea rows="20" cols="155" id="demo">
+
+    </textarea></td></table>
+
+</div>
+</div>
+</div>
+</div>
+</form>
+
+</body>
+</html>
